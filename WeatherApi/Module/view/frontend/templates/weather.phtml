@@ -1,0 +1,72 @@
+<?php
+$weatherData = $block->getWeatherData();
+
+if (is_string($weatherData)) {
+    echo '<p>' . $weatherData . '</p>'; // Hiển thị lỗi nếu có
+} else {
+    $temperatureC = $weatherData['main']['temp'];
+    $temperatureF = $block->convertToFahrenheit($temperatureC);
+    echo '<div class="weather-info">';
+    echo '<h2 class="weather-city">' . $this->escapeHtml($weatherData['name']) . '</h2>';
+    echo '<p class="weather-temp">' . $this->escapeHtml($temperatureC) . '°C / ' . $this->escapeHtml($temperatureF) . '°F</p>';
+    echo '<p class="weather-desc"><img src="http://openweathermap.org/img/wn/' . $this->escapeHtml($weatherData['weather'][0]['icon']) . '@2x.png" alt="' . $this->escapeHtml($weatherData['weather'][0]['description']) . '"> ' . $this->escapeHtml($weatherData['weather'][0]['description']) . '</p>';
+    echo '<p class="weather-humidity">Humidity: ' . $this->escapeHtml($weatherData['main']['humidity']) . '%</p>';
+    echo '<p class="weather-wind">Wind Speed: ' . $this->escapeHtml($weatherData['wind']['speed']) . ' m/s</p>';
+    echo '</div>';
+}
+?>
+
+<style>
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+.weather-container {
+    margin: 20px auto;
+    max-width: 600px;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.weather-info {
+    text-align: center;
+}
+
+.weather-city {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.weather-temp {
+    font-size: 3em;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.weather-desc {
+    font-size: 1.2em;
+    color: #666;
+    text-transform: capitalize;
+    margin-bottom: 10px;
+}
+
+.weather-desc img {
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.weather-humidity,
+.weather-wind {
+    font-size: 1em;
+    color: #333;
+    margin-bottom: 5px;
+}
+</style>
+

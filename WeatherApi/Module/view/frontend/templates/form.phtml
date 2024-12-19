@@ -1,0 +1,32 @@
+<form action="<?php echo $block->getUrl('weather/index/post'); ?>" method="post">
+    <label for="city">Enter City:</label>
+    <input type="text" id="city" name="city" required>
+    <button type="submit">Get Weather</button>
+</form>
+
+<style>
+form {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    font-size: 1em;
+    width: 200px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+</style>
+

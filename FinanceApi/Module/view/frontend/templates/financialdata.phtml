@@ -1,0 +1,81 @@
+<?php
+$forexRates = $block->getFinancialData();
+
+if (empty($forexRates)) {
+    echo '<p>No exchange rates available.</p>'; // Hiển thị lỗi nếu có
+} else {
+    echo '<div class="forex-container">';
+    echo '<table class="forex-table">';
+    echo '<thead>';
+    echo '<tr>';
+    echo '<th>Currency</th>';
+    echo '<th>Buy</th>';
+    echo '<th>Transfer</th>';
+    echo '<th>Sell</th>';
+    echo '</tr>';
+    echo '</thead>';
+    echo '<tbody>';
+    foreach ($forexRates as $rate) {
+        echo '<tr>';
+        echo '<td>' . $this->escapeHtml($rate['CurrencyCode']) . ' - ' . $this->escapeHtml($rate['CurrencyName']) . '</td>';
+        echo '<td>' . $this->escapeHtml($rate['Buy']) . '</td>';
+        echo '<td>' . $this->escapeHtml($rate['Transfer']) . '</td>';
+        echo '<td>' . $this->escapeHtml($rate['Sell']) . '</td>';
+        echo '</tr>';
+    }
+    echo '</tbody>';
+    echo '</table>';
+    echo '</div>';
+}
+?>
+
+<style>
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+}
+
+.forex-container {
+    margin: 20px auto;
+    max-width: 1200px;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+.forex-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.forex-table th,
+.forex-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.forex-table th {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.forex-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.forex-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.forex-table td {
+    color: #333;
+}
+</style>
+

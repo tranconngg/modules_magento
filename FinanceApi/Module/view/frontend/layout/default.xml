@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="footer">
+            <block class="Magento\Framework\View\Element\Html\Link" name="financial.data.link">
+                <arguments>
+                    <argument name="label" xsi:type="string">Xem thông tin tài chính</argument>
+                    <argument name="path" xsi:type="string">financeapi/index/financialdatapage</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>
+

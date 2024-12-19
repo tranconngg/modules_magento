@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!-- Ẩn các phần tử không cần thiết -->
+        <referenceContainer name="page.top" remove="true"/>
+        <referenceContainer name="breadcrumbs" remove="true"/>
+        <referenceContainer name="page.messages" remove="true"/>
+        <referenceContainer name="sidebar.main" remove="true"/>
+        <referenceContainer name="sidebar.additional" remove="true"/>
+        <referenceContainer name="page.bottom" remove="true"/>
+        <referenceContainer name="footer" remove="true"/>
+        
+        <referenceContainer name="content">
+            <container name="news_container" htmlTag="div" htmlClass="news-container">
+                <block class="Magento\Framework\View\Element\Template" name="news_heading" template="News_Module::heading.phtml"/>
+                <block class="News\Module\Block\News" name="news_block" template="News_Module::news.phtml"/>
+            </container>
+        </referenceContainer>
+    </body>
+</page>
+

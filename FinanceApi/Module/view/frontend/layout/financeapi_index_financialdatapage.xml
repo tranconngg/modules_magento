@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!-- Ẩn các phần tử không cần thiết -->
+        <referenceContainer name="page.top" remove="true"/>
+        <referenceContainer name="breadcrumbs" remove="true"/>
+        <referenceContainer name="page.messages" remove="true"/>
+        <referenceContainer name="sidebar.main" remove="true"/>
+        <referenceContainer name="sidebar.additional" remove="true"/>
+        <referenceContainer name="page.bottom" remove="true"/>
+        <referenceContainer name="footer" remove="true"/>
+        
+        <referenceContainer name="content">
+            <container name="forex_container" htmlTag="div" htmlClass="forex-container">
+                <block class="Magento\Framework\View\Element\Template" name="forex_heading" template="FinanceApi_Module::heading.phtml"/>
+                <block class="FinanceApi\Module\Block\FinancialData" name="forex_data" template="FinanceApi_Module::financialdata.phtml"/>
+            </container>
+        </referenceContainer>
+    </body>
+</page>
+
